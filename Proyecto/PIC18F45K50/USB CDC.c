@@ -5,21 +5,21 @@ FECHA: JUNIO 2019
 
 /*
 --------------------------------------------------------------------------------
-Implementar comunicaciÛn USB (CDC) para enviar un comando simple para prender y
+Implementar comunicaci√≥n USB (CDC) para enviar un comando simple para prender y
 apagar un LED incluido en la tarjeta X-TRAINER, y un segundo comando para
-preguntar el estado de un botÛn.
+preguntar el estado de un bot√≥n.
 --------------------------------------------------------------------------------
 */
 
 #include <18F45K50.h>                    //Incluye el microcontrolador con el que se va a trabajar 
 #use delay(internal=48MHz)               // Tipo de oscilador y frecuencia dependiendo del microcontrolador 
-#build(reset=0x02000,interrupt=0x02008)  // Asigna los vectores de reset e interrupciÛn para la versiÛn con bootloader
+#build(reset=0x02000,interrupt=0x02008)  // Asigna los vectores de reset e interrupci√≥n para la versi√≥n con bootloader
 #org 0x0000,0x1FFF {}                    // Reserva espacio en memoria para el bootloader
 
 #include <usb_cdc.h>                     //Libreria USB-CDC
 
-#define LED PIN_A1                       //Pin donde est· conectado el LED del X-TRAINER
-#define Boton PIN_A2                     //Pin donde est· conectado el BOTON del X-TRAINER
+#define LED PIN_A1                       //Pin donde est√° conectado el LED del X-TRAINER
+#define Boton PIN_A2                     //Pin donde est√° conectado el BOTON del X-TRAINER
 
 void main(void)
   {
@@ -28,7 +28,7 @@ void main(void)
       usb_cdc_init();                    // Configuramos al puerto virtual.
       usb_init();                        // Inicializamos el stack USB.
 
-      while(!usb_cdc_connected()) {}     // espera a detectar una transmisiÛn de la PC (Set_Line_Coding)
+      while(!usb_cdc_connected()) {}     // espera a detectar una transmisi√≥n de la PC (Set_Line_Coding)
 
        do{
 
@@ -57,14 +57,14 @@ void main(void)
 
                         {
 
-                            if (1 == input (Boton))                        //Pregunta el estado del botÛn
+                            if (1 == input (Boton))                        //Pregunta el estado del bot√≥n
                                {
-                                printf(usb_cdc_putc,"0\n");         //EnvÌa un 0 si el botÛn no est· presionado
+                                printf(usb_cdc_putc,"0\n");         //Env√≠a un 0 si el bot√≥n no est√° presionado
                                 }
 
                           else
                                  {
-                                       printf(usb_cdc_putc,"1\n"); //EnvÌa un 1 si el botÛn est· presionado
+                                       printf(usb_cdc_putc,"1\n"); //Env√≠a un 1 si el bot√≥n est√° presionado
                                  }
                       }
 
