@@ -1,0 +1,28 @@
+[PROJECT]
+Target=USB CDC.hex
+Processor_Text=PIC18F4550
+CCSVersion=5.090
+Compiler=PCH
+[Target Data]
+FileList=USB CDC.c
+[USB CDC.c]
+Type=4
+[mru-list]
+1=USB CDC.c
+[Units]
+Count=1
+1=USB CDC (main)
+
+[defines]
+buildcount=1
+
+[Opened Files]
+1=USB CDC.c
+t1=1
+Count=1
+
+[ProjectLog]
+Days=1
+D1=01-12-2020
+D1_L=1
+D1_L1=[36736]Project Closed.

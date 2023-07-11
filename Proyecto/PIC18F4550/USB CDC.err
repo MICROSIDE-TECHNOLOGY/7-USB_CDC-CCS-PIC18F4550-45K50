@@ -1,0 +1,10 @@
+Compiling C:\Users\Martin Hdez\Desktop\18F4550\7 USB CDC ----\USB CDC on 01-dic.-20 at 10:12
+>>> Warning 203 "D:\Programas\PICC\Drivers\pic18_usb.c" Line 728(1,1): Condition always TRUE
+>>> Warning 216 "C:\Users\Martin Hdez\Desktop\18F4550\7 USB CDC ----\USB CDC.c" Line 85(1,2): Interrupts disabled during call to prevent re-entrancy:  (usb_token_reset)
+>>> Warning 216 "C:\Users\Martin Hdez\Desktop\18F4550\7 USB CDC ----\USB CDC.c" Line 85(1,2): Interrupts disabled during call to prevent re-entrancy:  (usb_cdc_get_discard)
+>>> Warning 216 "C:\Users\Martin Hdez\Desktop\18F4550\7 USB CDC ----\USB CDC.c" Line 85(1,2): Interrupts disabled during call to prevent re-entrancy:  (usb_cdc_flush_tx_buffer)
+>>> Warning 216 "C:\Users\Martin Hdez\Desktop\18F4550\7 USB CDC ----\USB CDC.c" Line 85(1,2): Interrupts disabled during call to prevent re-entrancy:  (usb_tbe)
+>>> Warning 216 "C:\Users\Martin Hdez\Desktop\18F4550\7 USB CDC ----\USB CDC.c" Line 85(1,2): Interrupts disabled during call to prevent re-entrancy:  (usb_cdc_init)
+      Memory usage:   ROM=14%      RAM=20% - 23%
+      0 Errors,  6 Warnings.
+Build Successful.
