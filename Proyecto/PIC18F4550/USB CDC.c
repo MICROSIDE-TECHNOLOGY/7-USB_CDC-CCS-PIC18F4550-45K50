@@ -1,8 +1,10 @@
-/*
-AUTOR: MICROSIDE TECHNOLOGY S.A. DE C.V.
-FECHA: JUNIO 2019
-*/
-
+/************************************************************************************************
+Company:
+Microside Technology Inc.
+Product Revision  :  1
+Device            :  X-TRAINER
+Driver Version    :  1.0
+************************************************************************************************/
 /*
 --------------------------------------------------------------------------------
 Implementar comunicación USB (CDC) para enviar un comando simple para prender y
@@ -19,13 +21,14 @@ preguntar el estado de un botón.
 
 #include <usb_cdc.h>                            //Libreria USB-CDC
 
-#define LED PIN_A1                              //Pin donde está conectado el LED del X-TRAINER
+#define LED PIN_A4                              //Pin donde está conectado el LED del X-TRAINER
+                                                //en versiones anteriores se recomienda utilizar el pin A1
 #define Boton PIN_A2                            //Pin donde está conectado el BOTON del X-TRAINER
 
 void main(void)
   {
 
-      set_tris_a(0b11111111);
+      set_tris_a(0b11101111);
       set_tris_b(0b11111100);                   //Configura puerto B (1= entrada 0= salida )
       usb_cdc_init();                           // Configuramos al puerto virtual.
       usb_init();                               // Inicializamos el stack USB.
