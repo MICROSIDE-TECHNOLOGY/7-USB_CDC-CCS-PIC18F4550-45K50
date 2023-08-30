@@ -13,34 +13,34 @@ Stack size: 31
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-   74    26   3  USB CDC.c
-  972     0   0  D:\Programas\PICC\Devices\18F45K50.h
-  878   138  14  D:\Programas\PICC\Drivers\usb_cdc.h
-  228     0   0  D:\Programas\PICC\Drivers\pic18_usb.h
-  328     0   0  D:\Programas\PICC\Drivers\usb_hw_layer.h
-  300     0   0  D:\Programas\PICC\Drivers\usb_desc_cdc.h
-   39     0   0  D:\Programas\PICC\Drivers\stdbool.h
- 1105     0   0  D:\Programas\PICC\Drivers\usb.h
- 1193   234  23  D:\Programas\PICC\Drivers\usb.c
-  180     0   0  D:\Programas\PICC\Drivers\stdint.h
- 1517   303  30  D:\Programas\PICC\Drivers\pic18_usb.c
-  435   170  17  D:\Programas\PICC\Drivers\string.h
-   32    41   4  D:\Programas\PICC\Drivers\stddef.h
-   28   109  11  D:\Programas\PICC\Drivers\ctype.h
+   59    26   3  USB CDC.c
+  988     0   0  ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Devices\18F45K50.h
+  878   138  14  ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Drivers\usb_cdc.h
+  228     0   0  ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Drivers\pic18_usb.h
+  328     0   0  ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Drivers\usb_hw_layer.h
+  300     0   0  ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Drivers\usb_desc_cdc.h
+   39     0   0  ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Drivers\stdbool.h
+ 1105     0   0  ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Drivers\usb.h
+ 1193   234  23  ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Drivers\usb.c
+  195     0   0  ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Drivers\stdint.h
+ 1518   303  30  ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Drivers\pic18_usb.c
+  435   170  17  ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Drivers\string.h
+   32    41   4  ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Drivers\stddef.h
+   28   109  11  ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Drivers\ctype.h
 ----- -----
- 7309  1021 Total
+ 7326  1021 Total
 
 Page ROM  %  RAM    Vol Diff  Functions:
 ---- --- --- ---    --- ----  ----------
-0     32   0    0             @const821
-0     32   0    0             @const824
-0     48   1    0             @const827
-0     48   1    0             @const830
-0     84   1    0             @const833
-0     18   0    0             @const836
-0     24   0    0             @const839
-0     34   0    0             @const844
-0     60   1    0             @const847
+0     32   0    0             @const858
+0     32   0    0             @const861
+0     48   1    0             @const864
+0     48   1    0             @const867
+0     84   1    0             @const870
+0     18   0    0             @const873
+0     24   0    0             @const876
+0     34   0    0             @const881
+0     60   1    0             @const884
 0     30   0    5             @MUL1616
 0     78   1    4    139  4.3  usb_tbe
 0     32   0    0    134  2.7  usb_detach
@@ -96,22 +96,22 @@ Page ROM  %  RAM    Vol Diff  Functions:
 0     24   0    1     52  2.0  usb_cdc_putc_fast
 0     54   1    1    125  3.7  usb_cdc_putc
 0    172   2    1    601  5.1  MAIN
-0     14   0    0     30  1.7  @const1188
-0     32   0    2     22  1.2  @PSTRINGC_712
-0     16   0    0   3308  9.3  @const1193
- Inline         0   1149 12.8  @cinit1
+0     14   0    0     22  1.2  @const1227
+0     32   0    2   3308  9.3  @PSTRINGC_749
+0     16   0    0     29  1.9  @const1232
+ Inline         0             @cinit1
 
 Program metrics:
-    Functions               58
+    Functions               57
     Statements              1021
-    Comments                6879
-    Volume (V)              48350
-    Difficulty (D)          267.4
-    Effort to implement (E) 12926767
-    Time to implement (T)   199 hours, 29 minutes
-    Est Delivered Bugs (B)  18
-    Cyclomatic Complexity   144
-    Maintainability (MI)    43
+    Comments                6918
+    Volume (V)              46134
+    Difficulty (D)          255.1
+    Effort to implement (E) 11770127
+    Time to implement (T)   181 hours, 38 minutes
+    Est Delivered Bugs (B)  17
+    Cyclomatic Complexity   138
+    Maintainability (MI)    40
 
  Segment     Used  Free
 -----------  ----  ----

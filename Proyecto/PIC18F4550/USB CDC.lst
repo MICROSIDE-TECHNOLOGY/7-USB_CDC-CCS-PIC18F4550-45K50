@@ -1,6 +1,8 @@
-CCS PCH C Compiler, Version 5.090, 13314               01-dic.-20 10:12
+CCS PCH C Compiler, Version 5.115d, 1               30-ago.-23 14:24
+Compiler operating in Evaluation Mode
+To obtain a fully enabled compiler visit www.ccsinfo.com/products
 
-               Filename:   C:\Users\Martin Hdez\Desktop\18F4550\7 USB CDC ----\USB CDC.lst
+               Filename:   C:\Users\victo\OneDrive\Documentos\X-TRAINER-hands-on\CCS\PIC18F\7-USB_CDC-CCS-PIC18F4550-45K50\Proyecto\PIC18F4550\USB CDC.lst
 
                ROM used:   4564 bytes (14%)
                            Largest free fragment is 20008
@@ -57,10 +59,15 @@ CCS PCH C Compiler, Version 5.090, 13314               01-dic.-20 10:12
 20A4:  MOVFF  06,FE0
 20A8:  MOVFF  05,FD8
 20AC:  RETFIE 0
-.................... /*
-.................... AUTOR: MICROSIDE TECHNOLOGY S.A. DE C.V.
-.................... FECHA: JUNIO 2019
-.................... */
+.................... /************************************************************************************************
+.................... Company:
+.................... Microside Technology Inc.
+.................... File Name:
+.................... USB CDC.c
+.................... Product Revision  :  1
+.................... Device            :  X-TRAINER
+.................... Driver Version    :  1.0
+.................... ************************************************************************************************/
 .................... 
 .................... /*
 .................... --------------------------------------------------------------------------------
@@ -69,12 +76,11 @@ CCS PCH C Compiler, Version 5.090, 13314               01-dic.-20 10:12
 .................... preguntar el estado de un botón.
 .................... --------------------------------------------------------------------------------
 .................... */
-.................... 
 ....................  
-.................... #include <18F4550.h>                            //Incluye el microcontrolador con el que se va a trabajar 
+.................... #include <18F4550.h>                           // Incluye el microcontrolador con el que se va a trabajar 
 .................... //////////// Standard Header file for the PIC18F4550 device ////////////////
 .................... ///////////////////////////////////////////////////////////////////////////
-.................... ////        (C) Copyright 1996, 2014 Custom Computer Services          ////
+.................... ////        (C) Copyright 1996, 2020 Custom Computer Services          ////
 .................... //// This source code may only be used by licensed users of the CCS C  ////
 .................... //// compiler.  This source code may only be distributed to other      ////
 .................... //// licensed users of the CCS C compiler.  No other use, reproduction ////
@@ -318,11 +324,11 @@ CCS PCH C Compiler, Version 5.090, 13314               01-dic.-20 10:12
 .................... 
 .................... #list
 .................... 
-.................... #use delay(clock=48Mhz, crystal)                //Tipo de oscilador y frecuencia dependiendo del microcontrolador 
-.................... #build(reset=0x02000,interrupt=0x02008)         //Asignación de los vectores de reset e interrupción
-.................... #org 0x0000,0x1FFF {}                           //Reserva espacio en la memoria para la versión con bootloader
+.................... #use delay ( clock=48Mhz, crystal )            // Tipo de oscilador y frecuencia dependiendo del microcontrolador 
+.................... #build( reset=0x02000, interrupt=0x02008 )     // Asignación de los vectores de reset e interrupción
+.................... #org 0x0000,0x1FFF {}                          // Reserva espacio en la memoria para la versión con bootloader
 .................... 
-.................... #include <usb_cdc.h>                            //Libreria USB-CDC
+.................... #include <usb_cdc.h>                           // Libreria USB-CDC
 .................... /////////////////////////////////////////////////////////////////////////
 .................... ////                                                                 ////
 .................... ////                            usb_cdc.h                            ////
@@ -4197,16 +4203,31 @@ CCS PCH C Compiler, Version 5.090, 13314               01-dic.-20 10:12
 .................... 
 .................... /////////// greatest width (OPTIONAL)
 .................... 
-.................... /// TODO
-.................... 
-.................... /// intmax_t uintmax_t
-.................... 
-.................... /// INTMAXN_MIN INTMAXN_MAX UINTMAXN_MAX
-.................... 
-.................... /// INTMAX_C(value) UINTMAX_C(value)
+.................... #ifdef __PCD__
+....................    typedef signed int64 intmax_t;
+....................    typedef unsigned int64 uintmax_t;
+....................    
+....................    #define INTMAXN_MAX  (9223372036854775807)
+....................    #define INTMAXN_MIN  (-9223372036854775808)
+....................    #define UINTMAXN_MAX (18446744073709551615)
+....................    
+....................    #define INTMAX_C(value) ((signed int64)val)
+....................    #define UINTMAX_C(value) ((unsigned int64)val)
+.................... #else
+....................    typedef signed int32 intmax_t;
+....................    typedef unsigned int32 uintmax_t;
+....................    
+....................    #define INTMAXN_MAX  (2147483647)
+....................    #define INTMAXN_MIN  (-2147483648)
+....................    #define UINTMAXN_MAX (4294967295)
+....................    
+....................    #define INTMAX_C(value) ((signed int32)val)
+....................    #define UINTMAX_C(value) ((unsigned int32)val)
+.................... #endif
 .................... 
 .................... 
 .................... #endif
+.................... 
 .................... 
 .................... 
 .................... #if defined(__PIC16F_USB_H__)
@@ -6378,6 +6399,7 @@ CCS PCH C Compiler, Version 5.090, 13314               01-dic.-20 10:12
 2C86:  ADDWF  xA5,W
 2C88:  MOVWF  FEA
 2C8A:  MOVFF  A3,FEF
+....................       
 ....................       EP_BDxST_I(endpoint) |= 0x80; //change mar2015
 2C8E:  CLRF   xA6
 2C90:  MOVFF  9F,A5
@@ -9891,7 +9913,7 @@ CCS PCH C Compiler, Version 5.090, 13314               01-dic.-20 10:12
 .................... size_t strxfrm(char *s1, char *s2, size_t n)
 .................... {
 ....................    char c;
-....................    unsigned int8 n1;
+....................    size_t n1;
 ....................    
 ....................    if (!s1 && !n)
 ....................       n = -1; //find length
@@ -10640,10 +10662,11 @@ CCS PCH C Compiler, Version 5.090, 13314               01-dic.-20 10:12
 .................... #endif
 .................... 
 .................... 
-.................... #define LED PIN_A1                              //Pin donde está conectado el LED del X-TRAINER
-.................... #define Boton PIN_A2                            //Pin donde está conectado el BOTON del X-TRAINER
+.................... #define LED PIN_A4                             // Pin donde está conectado el LED del X-TRAINER
+....................                                                // en versiones anteriores se recomienda utilizar el pin A1
+.................... #define Boton PIN_A2                           // Pin donde está conectado el BOTON del X-TRAINER
 .................... 
-.................... void main(void)
+.................... void main( void ) {
 *
 313C:  CLRF   FF8
 313E:  BCF    FD0.7
@@ -10658,133 +10681,103 @@ CCS PCH C Compiler, Version 5.090, 13314               01-dic.-20 10:12
 3150:  MOVWF  FB4
 3152:  CLRF   x77
 3154:  CLRF   x78
-....................   {
-.................... 
-....................       set_tris_a(0b11111111);
-3156:  MOVLW  FF
+....................    set_tris_a( 0b11101111 );
+3156:  MOVLW  EF
 3158:  MOVWF  F92
-....................       set_tris_b(0b11111100);                   //Configura puerto B (1= entrada 0= salida )
+....................    set_tris_b( 0b11111100 );                   // Configura puerto B (1= entrada 0= salida )
 315A:  MOVLW  FC
 315C:  MOVWF  F93
 315E:  CLRF   19
 3160:  BTFSC  FF2.7
 3162:  BSF    19.7
 3164:  BCF    FF2.7
-....................       usb_cdc_init();                           // Configuramos al puerto virtual.
+....................    usb_cdc_init();                             // Configuramos al puerto virtual.
 3166:  CALL   2352
 316A:  BTFSC  19.7
 316C:  BSF    FF2.7
-....................       usb_init();                               // Inicializamos el stack USB.
+....................    usb_init();                                 // Inicializamos el stack USB.
 316E:  BRA    3052
 .................... 
-....................       while(!usb_cdc_connected()) {}            // espera a detectar una transmisión de la PC (Set_Line_Coding)
+....................    while ( !usb_cdc_connected() ) {}           // espera a detectar una transmisión de la PC (Set_Line_Coding)
 3170:  BTFSS  x74.0
 3172:  BRA    3170
-....................        do{
-....................                usb_task();              
+.................... 
+....................    do {
+....................       usb_task();
 3174:  RCALL  3030
-....................                 if(usb_enumerated())
+.................... 
+....................       if ( usb_enumerated() ) {
 3176:  BRA    3060
 3178:  MOVF   01,F
 317A:  BZ    31D4
-....................                     {
-.................... 
-....................                       char Caracter =usb_cdc_getc();                     //Guarda el caracter
+....................          char Caracter = usb_cdc_getc();       // Guarda el caracter
 317C:  BRA    3068
 317E:  MOVFF  01,7B
 .................... 
-....................                       if (Caracter == '0')
+....................          if ( Caracter == '0' ) {
 3182:  MOVF   x7B,W
 3184:  SUBLW  30
 3186:  BNZ   3198
-.................... 
-....................                          {
-.................... 
-....................                             output_low (LED);                            //Apaga el LED
-3188:  BCF    F92.1
-318A:  BCF    F89.1
-.................... 
-....................                             printf(usb_cdc_putc,"LED apagado\n"); //Envia un texto del estado del LED
+....................             output_low( LED );                 // Apaga el LED
+3188:  BCF    F92.4
+318A:  BCF    F89.4
+....................             printf( usb_cdc_putc, "LED apagado\n" ); // Envia un texto del estado del LED
 318C:  MOVLW  B8
 318E:  MOVWF  FF6
 3190:  MOVLW  2F
 3192:  MOVWF  FF7
 3194:  RCALL  311C
-.................... 
-....................                          }
+....................          } else if ( Caracter == '1' ) {
 3196:  BRA    31D4
-.................... 
-....................  
-....................                      else if (Caracter == '1')
 3198:  MOVF   x7B,W
 319A:  SUBLW  31
 319C:  BNZ   31AE
-.................... 
-....................                          {
-.................... 
-....................                             output_HIGH (LED);                             //Enciende el LED
-319E:  BCF    F92.1
-31A0:  BSF    F89.1
-.................... 
-....................                             printf(usb_cdc_putc,"LED encendido\n"); //Envia un texto del estado del LED
+....................             output_HIGH( LED );                // Enciende el LED
+319E:  BCF    F92.4
+31A0:  BSF    F89.4
+....................             printf( usb_cdc_putc, "LED encendido\n" ); // Envia un texto del estado del LED
 31A2:  MOVLW  C6
 31A4:  MOVWF  FF6
 31A6:  MOVLW  2F
 31A8:  MOVWF  FF7
 31AA:  RCALL  311C
-.................... 
-....................                          }
+....................          } else if ( Caracter == '?' ) {
 31AC:  BRA    31D4
-.................... 
-....................                       else if (Caracter == '?')
 31AE:  MOVF   x7B,W
 31B0:  SUBLW  3F
 31B2:  BNZ   31D4
 .................... 
-.................... 
-....................                         {
-.................... 
-....................                             if (1 == input (Boton))                 //Pregunta el estado del botón
+....................             if ( 1 == input( Boton ) ) {       // Pregunta el estado del botón
 31B4:  BSF    F92.2
 31B6:  BTFSS  F80.2
 31B8:  BRA    31C8
-....................                                {
-.................... 
-....................                                  printf(usb_cdc_putc,"0\n"); //Envía un 0 si el botón no está presionado
+....................                printf( usb_cdc_putc, "0\n" );  // Envía un 0 si el botón no está presionado
 31BA:  MOVLW  30
 31BC:  MOVWF  x7E
 31BE:  RCALL  30E6
 31C0:  MOVLW  0A
 31C2:  MOVWF  x7E
 31C4:  RCALL  30E6
-.................... 
-....................                                 }
+....................             } else {
 31C6:  BRA    31D4
-....................                                 
-....................                           else
-....................                                  {
-....................                                  
-....................                                   printf(usb_cdc_putc,"1\n"); //Envía un 1 si el botón está presionado
+....................                printf( usb_cdc_putc, "1\n" );  // Envía un 1 si el botón está presionado
 31C8:  MOVLW  31
 31CA:  MOVWF  x7E
 31CC:  RCALL  30E6
 31CE:  MOVLW  0A
 31D0:  MOVWF  x7E
 31D2:  RCALL  30E6
-....................                                  
-....................                                  }
-.................... 
-....................                       }
-.................... 
-....................               }
-....................        }while (TRUE);                                       // bucle infinito.
+....................             }
+....................          }
+....................       }
+....................    } while ( 1 );                              // bucle infinito.
 31D4:  BRA    3174
 .................... }
 31D6:  SLEEP 
 
 Configuration Fuses:
    Word  1: CC07   PLL12 CPUDIV1 NOUSBDIV HS FCMEN IESO
-   Word  2: 1F26   PUT BROWNOUT VREGEN WDT WDT32768
+   Word  2: 1F3E   PUT BROWNOUT BORV21 VREGEN WDT WDT32768
    Word  3: 8700   CCP2C1 PBADEN LPT1OSC MCLR
    Word  4: 00A1   STVREN NOLVP ICSP2 NOXINST NODEBUG
    Word  5: C00F   NOPROTECT NOCPB NOCPD

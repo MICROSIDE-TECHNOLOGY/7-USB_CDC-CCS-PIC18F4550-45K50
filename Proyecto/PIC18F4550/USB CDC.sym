@@ -47,9 +47,9 @@
 07C     usb_cdc_getc.c
 07C     usb_detach.@SCRATCH1
 07C     usb_task.@SCRATCH1
-07C     @PSTRINGC_706.@SCRATCH1
+07C     @PSTRINGC_743.@SCRATCH1
 07D     usb_cdc_getc.@SCRATCH1
-07D     @PSTRINGC_706.@SCRATCH2
+07D     @PSTRINGC_743.@SCRATCH2
 07E     usb_cdc_putc.c
 07F     usb_cdc_putc_fast.c
 080     _usb_cdc_putc_fast_noflush.c
@@ -57,42 +57,42 @@
 082     _usb_cdc_putc_fast_noflush.@SCRATCH1
 083     _usb_cdc_putc_fast_noflush.@SCRATCH2
 093     usb_isr.TRNAttempts
-094     usb_isr_tok_dne.en
 094     usb_token_reset.i
+094     usb_isr_tok_dne.en
 094     usb_isr.@SCRATCH1
 094     usb_init_ep0_setup.@SCRATCH1
 095     usb_isr_tok_dne.pidKey
 095     usb_init_ep0_setup.@SCRATCH2
 095     usb_token_reset.@SCRATCH1
 095     usb_cdc_init.@SCRATCH1
-096     usb_stall_ep.endpoint
-096     usb_unstall_ep.endpoint
-096     usb_Get_Descriptor.i
-096     usb_endpoint_stalled.endpoint
-096     usb_isr_tok_in_dne.endpoint
-096     usb_set_configured.config
-096     usb_isr_tok_out_dne.endpoint
 096-097 usb_isr_tkn_cdc.wLen
+096     usb_stall_ep.endpoint
+096     usb_isr_tok_in_dne.endpoint
+096     usb_Get_Descriptor.i
+096     usb_set_configured.config
 096     usb_isr_tkn_setup_StandardInterface.curr_config
+096     usb_endpoint_stalled.endpoint
+096     usb_isr_tok_out_dne.endpoint
+096     usb_unstall_ep.endpoint
 096     usb_isr_tok_dne.@SCRATCH1
 096     usb_token_reset.@SCRATCH2
 096     usb_cdc_init.@SCRATCH2
-097     usb_set_address.address
-097     usb_set_configured.en
-097.0   usb_endpoint_stalled.direction
-097     usb_copy_desc_seg_to_ep.i
-097     usb_flush_out.endpoint
 097.0   usb_unstall_ep.direction
+097     usb_set_address.address
 097     usb_put_packet.endpoint
-097     usb_rx_packet_size.endpoint
 097.0   usb_stall_ep.direction
+097     usb_set_configured.en
+097     usb_copy_desc_seg_to_ep.i
+097     usb_rx_packet_size.endpoint
+097.0   usb_endpoint_stalled.direction
+097     usb_flush_out.endpoint
 097     usb_isr_tkn_setup_StandardInterface.@SCRATCH1
 097     usb_cdc_init.@SCRATCH3
-098     usb_flush_out.tgl
-098-099 usb_put_packet.ptr
-098     usb_endpoint_stalled.st
 098-099 usb_set_configured.addy
+098-099 usb_put_packet.ptr
 098     usb_copy_desc_seg_to_ep.c
+098     usb_endpoint_stalled.st
+098     usb_flush_out.tgl
 098     usb_rx_packet_size.@SCRATCH1
 098     usb_stall_ep.@SCRATCH1
 098     usb_unstall_ep.@SCRATCH1
@@ -106,8 +106,8 @@
 099     usb_endpoint_stalled.@SCRATCH1
 099     usb_copy_desc_seg_to_ep.@SCRATCH1
 09A     usb_set_configured.new_uep
-09A-09B usb_put_packet.len
 09A-09B usb_flush_out.len
+09A-09B usb_put_packet.len
 09A     usb_stall_ep.@SCRATCH3
 09A     usb_unstall_ep.@SCRATCH3
 09A     usb_endpoint_stalled.@SCRATCH2
@@ -123,8 +123,8 @@
 09E     usb_disable_endpoints.i
 09E     usb_flush_out.@SCRATCH3
 09E     usb_set_configured.@SCRATCH1
-09F     usb_flush_in.endpoint
 09F     usb_disable_endpoint.en
+09F     usb_flush_in.endpoint
 09F     usb_put_packet.@SCRATCH1
 09F     usb_flush_out.@SCRATCH4
 09F     usb_set_configured.@SCRATCH2
@@ -156,16 +156,16 @@
 400-522 g_USBRAM
 F66     UFRML
 F67     UFRMH
-F68.0   UIR_URST
 F68     UIR
+F68.0   UIR_URST
 F68.1   UIR_UERR
 F68.2   UIR_ACTV
 F68.3   UIR_TRN
 F68.4   UIR_IDLE
 F68.5   UIR_STALL
 F68.6   UIR_SOF
-F69.0   UIE_URST
 F69     UIE
+F69.0   UIE_URST
 F69.1   UIE_UERR
 F69.2   UIE_ACTV
 F69.3   UIE_TRN
@@ -189,20 +189,20 @@ F83     PSP_DATA
 FA0.5   USBIE
 FB4.6   C1OUT
 FB4.7   C2OUT
-FBB     CCP_2_LOW
 FBB     CCP_2
+FBB     CCP_2_LOW
 FBC     CCP_2_HIGH
 FBE     CCP_1
 FBE     CCP_1_LOW
 FBF     CCP_1_HIGH
-FE1-FE2 @READ_PACKED_MEMORY.P1
-FE1-FE2 @WRITE_PACKED_MEMORY.P2
-FE9-FEA @WRITE_PROGRAM_MEMORY.P1
-FE9-FEA @READ_PROGRAM_MEMORY.P2
-FE9-FEA @WRITE_PACKED_MEMORY.P3
-FE9-FEA @READ_PACKED_MEMORY.P4
-FF6-FF8 @READ_PROGRAM_MEMORY.P1
-FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+FE1-FE2 @WRITE_PACKED_MEMORY.P1
+FE1-FE2 @READ_PACKED_MEMORY.P2
+FE9-FEA @READ_PROGRAM_MEMORY.P1
+FE9-FEA @WRITE_PROGRAM_MEMORY.P2
+FE9-FEA @READ_PACKED_MEMORY.P3
+FE9-FEA @WRITE_PACKED_MEMORY.P4
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P1
+FF6-FF8 @READ_PROGRAM_MEMORY.P2
 
 ROM Allocation:
 0020AE  usb_ep_tx_type.call
@@ -267,8 +267,8 @@ ROM Allocation:
 002E5A  usb_isr_tok_in_dne
 002E7C  usb_isr_tok_dne
 002F46  usb_isr
-002FB8  @const1242.call
-002FC6  @const1247.call
+002FB8  @const1281.call
+002FC6  @const1286.call
 002FD6  usb_detach
 002FFC  usb_init_cs
 003002  usb_attach
@@ -279,36 +279,36 @@ ROM Allocation:
 00309E  _usb_cdc_putc_fast_noflush
 0030CE  usb_cdc_putc_fast
 0030E6  usb_cdc_putc
-00311C  @PSTRINGC_706
+00311C  @PSTRINGC_743
 00313C  MAIN
 00313C  @cinit1
 003152  @cinit2
 
 Project Directory:
-    C:\Users\Martin Hdez\Desktop\18F4550\7 USB CDC ----\
+    C:\Users\victo\OneDrive\Documentos\X-TRAINER-hands-on\CCS\PIC18F\7-USB_CDC-CCS-PIC18F4550-45K50\Proyecto\PIC18F4550\
 
 Project Files:
-    USB CDC.c                                               [30-nov.-20 14:05  CRC=B096A1CE]
-    D:\Programas\PICC\Devices\18F4550.h                     [02-oct.-19 09:47  CRC=AFEA7A8E]
-    D:\Programas\PICC\Drivers\usb_cdc.h                     [01-abr.-19 11:39  CRC=D21D1DD7]
-    D:\Programas\PICC\Drivers\pic18_usb.h                   [11-mar.-13 18:56  CRC=A13AD10C]
-    D:\Programas\PICC\Drivers\usb_hw_layer.h                [31-ago.-10 16:26  CRC=8105D92F]
-    D:\Programas\PICC\Drivers\usb_desc_cdc.h                [01-abr.-19 11:58  CRC=6527D805]
-    D:\Programas\PICC\Drivers\stdbool.h                     [17-abr.-19 13:48  CRC=969707C0]
-    D:\Programas\PICC\Drivers\usb.h                         [01-abr.-19 11:27  CRC=706146EC]
-    D:\Programas\PICC\Drivers\usb.c                         [05-jun.-19 11:49  CRC=EE4219B5]
-    D:\Programas\PICC\Drivers\stdint.h                      [12-abr.-18 09:50  CRC=F5866EA9]
-    D:\Programas\PICC\Drivers\pic18_usb.c                   [21-jun.-19 09:12  CRC=9E6B1E02]
-    D:\Programas\PICC\Drivers\string.h                      [02-ago.-19 11:17  CRC=428BEDCB]
-    D:\Programas\PICC\Drivers\stddef.h                      [30-ene.-19 12:26  CRC=897CEC6C]
-    D:\Programas\PICC\Drivers\ctype.h                       [03-ene.-08 15:55  CRC=2D1F019F]
+    USB CDC.c                                               [30-ago.-23 14:23  CRC=6E651154]
+    ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Devices\18F4550.h [02-may.-23 08:34  CRC=3BACED27]
+    ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Drivers\usb_cdc.h [20-may.-21 19:19  CRC=D21D1DD7]
+    ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Drivers\pic18_usb.h [11-mar.-13 18:56  CRC=A13AD10C]
+    ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Drivers\usb_hw_layer.h [31-ago.-10 16:26  CRC=8105D92F]
+    ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Drivers\usb_desc_cdc.h [01-abr.-19 11:58  CRC=6527D805]
+    ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Drivers\stdbool.h [17-abr.-19 13:48  CRC=969707C0]
+    ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Drivers\usb.h [01-abr.-19 11:27  CRC=706146EC]
+    ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Drivers\usb.c [05-jun.-19 11:49  CRC=EE4219B5]
+    ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Drivers\stdint.h [13-may.-20 09:33  CRC=4FD89CC0]
+    ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Drivers\pic18_usb.c [22-jul.-20 18:35  CRC=BE6EE959]
+    ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Drivers\string.h [06-abr.-20 08:43  CRC=B1605627]
+    ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Drivers\stddef.h [30-ene.-19 12:26  CRC=897CEC6C]
+    ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Drivers\ctype.h [03-ene.-08 15:55  CRC=2D1F019F]
 
-Source signature=69798EF4
+Source signature=9C34D2DD
 Program memory checksum=0000
-Hex file CRC=954F
+Hex file CRC=A066
 
 Units:
-    C:\Users\Martin Hdez\Desktop\18F4550\7 USB CDC ----\USB CDC (main)
+    C:\Users\victo\OneDrive\Documentos\X-TRAINER-hands-on\CCS\PIC18F\7-USB_CDC-CCS-PIC18F4550-45K50\Proyecto\PIC18F4550\USB CDC (main)
 
 Compiler Settings:
     Processor:      PIC18F4550
@@ -317,7 +317,10 @@ Compiler Settings:
     Opt Level:      9
     Short,Int,Long: UNSIGNED: 1,8,16
     Float,Double:   32,32
-    Compile Mode:       CCS5
+    Compile Mode:   CCS5
+
+Compiler operating in Evaluation Mode
+To obtain a fully enabled compiler visit www.ccsinfo.com/products
 
 Output Files:
     XREF file:   USB CDC.xsym
